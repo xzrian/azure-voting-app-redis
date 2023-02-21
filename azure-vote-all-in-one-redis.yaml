@@ -46,14 +46,14 @@ spec:
         app: azure-vote-front
     spec:
       containers:
-      - name: azure-vote-front
-        image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 80
+        - name: azure-vote-front
+          image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
       imagePullSecrets:
         - name: acrsecret
 ---
