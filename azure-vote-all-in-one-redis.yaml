@@ -37,32 +37,25 @@ kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: azure-vote-front
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5
   template:
     metadata:
       labels:
         app: azure-vote-front
     spec:
       containers:
-        - name: azure-vote-front
-          image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
+      - name: azure-vote-front
+        image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
       imagePullSecrets:
         - name: acrsecret
-      ports:
-        - containerPort: 80
-      resources:
-        requests:
-          cpu: 250m
-        limits:
-          cpu: 500m
 ---
 apiVersion: v1
 kind: Service
