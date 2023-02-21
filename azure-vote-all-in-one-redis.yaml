@@ -49,9 +49,6 @@ spec:
         - name: azure-vote-front
           image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
           resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
           ports:
             - containerPort: 80
       imagePullSecrets:
