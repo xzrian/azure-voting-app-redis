@@ -53,6 +53,9 @@ spec:
             - containerPort: 80
       imagePullSecrets:
         - name: acrsecret
+      env:
+        - name: REDIS
+          value: "azure-vote-back"
 ---
 apiVersion: v1
 kind: Service
