@@ -56,15 +56,15 @@ spec:
       containers:
       - name: azure-vote-front
         image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
-        imagePullSecrets:
-        - name: acrsecret
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            cpu: 250m
-          limits:
-            cpu: 500m
+      imagePullSecrets:
+      - name: regcred
+      ports:
+      - containerPort: 80
+      resources:
+        requests:
+          cpu: 250m
+        limits:
+          cpu: 500m
 ---
 apiVersion: v1
 kind: Service
