@@ -48,14 +48,15 @@ spec:
       containers:
         - name: azure-vote-front
           image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
+          env:
+          - name: REDIS
+            value: "azure-vote-back"
           resources:
           ports:
             - containerPort: 80
       imagePullSecrets:
         - name: acrsecret
-          env:
-          - name: REDIS
-            value: "azure-vote-back"
+       
 ---
 apiVersion: v1
 kind: Service
