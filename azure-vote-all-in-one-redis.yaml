@@ -53,13 +53,11 @@ spec:
       labels:
         app: azure-vote-front
     spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
         image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
-      imagePullSecrets:
-      - name: acrsecret
+        imagePullSecrets:
+        - name: acrsecret
         ports:
         - containerPort: 80
         resources:
@@ -67,9 +65,6 @@ spec:
             cpu: 250m
           limits:
             cpu: 500m
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
 ---
 apiVersion: v1
 kind: Service
