@@ -59,7 +59,7 @@ spec:
       - name: azure-vote-front
         image: akshcidemoapps.azurecr.io/xzrian/azure-voting-app-redis:master
       imagePullSecrets:
-      - name: acr_secret
+      - name: acrsecret
         ports:
         - containerPort: 80
         resources:
